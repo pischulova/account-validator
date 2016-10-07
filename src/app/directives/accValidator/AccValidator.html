@@ -1,0 +1,15 @@
+<div>
+	<form name="valForm" novalidate ng-submit="valForm.$valid && validate()">
+	  <div> Enter your account number: </div>
+		<input type="text" name="num" ng-model="accNumber.number" required ng-pattern="/^[0-9]{15}$/">
+		<input class="butt" type="submit">
+
+    <div ng-show="valForm.$submitted">
+      <div ng-show="valForm.num.$error.required || valForm.num.$error.pattern" class="inline">Must be 15 digits</div>
+    </div>
+
+		<div class="account" ng-if="accNumber.number">
+			{{accNumber.number | mask}}
+		</div>
+	</form>
+</div>
