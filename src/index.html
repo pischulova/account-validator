@@ -5,7 +5,6 @@
     <title>FountainJS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
   </head>
 
   <body ng-app="app">
@@ -13,7 +12,14 @@
       <app>Loading...</app>
     </div>
 
-    <acc-validator></acc-validator>
+    <form name="accValidation" novalidate>
+      <div> Enter your account number: </div>
+      <input type="text" name="number" ng-model="accNumber.number" acc-validator required ng-pattern="/^[0-9]{15}$/"/>
+      <div class="account"> {{accNumber.number | mask}} </div>
+      <div ng-show="accValidation.number.$pending.accValidator">Checking the account number...</div>
+      <div ng-show="accValidation.number.$error.accValidator">Server didn't respond</div>
+    </form>
+
 
   </body>
 </html>

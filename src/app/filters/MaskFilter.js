@@ -1,5 +1,6 @@
 export function MaskFilter() {
-  return function(item) {
-    return `${item.substr(0, 3)}*********${item.substr(10, 3)}`;
+  return function(input) {
+    if (!input || input.length != 15) { return; }
+    return `${input.substr(0, 3)}*********${input.substr(10, 3)}`;
   }
 }
