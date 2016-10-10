@@ -6,6 +6,8 @@ export function AccValidator($q, $http) {
     link: function(scope, elem, attrs, ctrl) {
       ctrl.$asyncValidators.accValidator = function(modelValue, viewValue) {
 
+          console.dir(elem);
+
         if (ctrl.$isEmpty(modelValue)) {
           return $q.when();
         }
